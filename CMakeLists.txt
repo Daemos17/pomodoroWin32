@@ -6,4 +6,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 add_executable(PomodoroWin32 WIN32 src/main.c)
 
+target_include_directories(PomodoroWin32 PRIVATE "include")
+
 target_link_libraries(PomodoroWin32 PRIVATE user32 gdi32)
+

@@ -1,12 +1,12 @@
 #pragma once
 
-enum state {POM_WORKING, POM_STATE_IDLE, POM_STATE_PAUSED, POM_SHORT_BREAK, POM_LONG_BREAK};
+enum state {POM_STATE_WORKING, POM_STATE_IDLE, POM_STATE_PAUSED, POM_STATE_SHORT_BREAK, POM_STATE_LONG_BREAK};
 
 
 struct Pomodoro_Config
 {
-    unsigned int work_duration;
-    unsigned int short_break_duration; //сохраняем в секундах
+    unsigned int work_duration; 
+    unsigned int short_break_duration;  //сохраняем в секундах
     unsigned int long_break_duration;
     unsigned int cycle_threshold;
 };
@@ -27,3 +27,6 @@ struct AppState
     struct Pomodoro_Config pmd_c;
 
 };
+
+
+int AppState_Init(struct AppState* state, const struct Pomodoro_Config* cfg );
