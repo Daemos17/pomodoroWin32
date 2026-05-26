@@ -4,7 +4,7 @@ project(PomodoroWin32 C)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-add_executable(PomodoroWin32 WIN32 src/main.c)
+add_executable(PomodoroWin32 WIN32 src/main.c src/app_state.c)
 
 target_include_directories(PomodoroWin32 PRIVATE "include")
 

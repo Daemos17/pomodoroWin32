@@ -5,10 +5,10 @@ enum state {POM_STATE_WORKING, POM_STATE_IDLE, POM_STATE_PAUSED, POM_STATE_SHORT
 
 struct Pomodoro_Config
 {
-    unsigned int work_duration; 
-    unsigned int short_break_duration;  //сохраняем в секундах
-    unsigned int long_break_duration;
-    unsigned int cycle_threshold;
+    unsigned int work_duration; //Длительность периода работы в секундах
+    unsigned int short_break_duration;  //Длительность короткого перерыва в секундах
+    unsigned int long_break_duration; // Длительность длинного перерыва в секундах
+    unsigned int cycle_threshold; // Количество рабочих циклов для дилнного отдыха
 };
 
 struct Pomodoro_Runtime
