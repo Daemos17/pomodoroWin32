@@ -5,6 +5,15 @@ static struct AppState g_state;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
+
+    switch(msg)
+    {
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            break;
+
+    }
+    
     return DefWindowProc(hwnd, msg, wParam, lParam);
 }
 
@@ -27,6 +36,29 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         return -1;
     }
 
+    HWND hwnd = CreateWindowEx(
+        0,
+        CLASS_NAME,
+        "PomodoroTimer",
+        WS_OVERLAPPEDWINDOW,
+        CW_USEDEFAULT, CW_USEDEFAULT,
+        300, 300,
+        NULL,
+        NULL,
+        hInstance,
+        &g_state
+    );
 
-    return 0;
+    if(hwnd == NULL) return 0;
+
+    ShowWindow(hwnd, nCmdShow);
+    UpdateWindow(hwnd);
+
+    MSG msg;
+    while(GetMessage(&msg, NULL, 0, 0)){
+        TranslateMessage(&msg);
+        DispatchMessage(&msg);
+    }
+
+    return (int)msg.wParam;
 }
